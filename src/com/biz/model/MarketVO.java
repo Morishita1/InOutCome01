@@ -3,7 +3,7 @@ package com.biz.model;
 public class MarketVO {
 
 	private String wh;
-	private int ma;
+	private String ma;
 	private String name;
 	private int ga;
 	private int fa;
@@ -17,7 +17,7 @@ public class MarketVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MarketVO(String wh, int ma, String name, int ga, int fa, int da, int sa) {
+	public MarketVO(String wh, String ma, String name, int ga, int fa, int da, int sa) {
 		super();
 		this.wh = wh;
 		this.ma = ma;
@@ -33,10 +33,10 @@ public class MarketVO {
 	public void setWh(String wh) {
 		this.wh = wh;
 	}
-	public int getMa() {
+	public String getMa() {
 		return ma;
 	}
-	public void setMa(int ma) {
+	public void setMa(String ma) {
 		this.ma = ma;
 	}
 	public String getName() {

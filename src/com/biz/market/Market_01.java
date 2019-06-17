@@ -31,7 +31,7 @@ public class Market_01 {
 				String[] scores=reader.split(":");
 				vo.setWh(scores[0]);
 				vo.setName(scores[1]);
-				vo.setMa(Integer.valueOf(scores[2]));
+				vo.setMa(scores[2]);
 				vo.setGa(Integer.valueOf(scores[3]));
 				vo.setFa(Integer.valueOf(scores[4]));
 				maList.add(vo);
@@ -52,11 +52,13 @@ public class Market_01 {
 	public void sumMarket() {
 		int intLen=maList.size();
 		for(int i=0;i<intLen;i++) {
-			if(maList.get(i).getMa()==1) {
+			if(maList.get(i).getMa().equals("1")) {
+				maList.get(i).setMa("매입");
 				int sum=maList.get(i).getGa()*maList.get(i).getFa();
 				maList.get(i).setDa(sum);
 			
 			}else {
+				maList.get(i).setMa("매출");
 				int sum=maList.get(i).getGa()*maList.get(i).getFa();
 				maList.get(i).setSa(sum);
 
@@ -73,7 +75,7 @@ public class Market_01 {
 		System.out.println("거래일자\t구분\t상품명\t단가\t수량\t매입금액\t매출금액");
 		System.out.println("------------------------------------------------------------------------");
 		for(MarketVO vo: maList) {
-			System.out.printf("%s\t%d\t%s\t%d\t%d\t%d\t%d\n",vo.getWh(),vo.getMa(),vo.getName(),
+			System.out.printf("%s\t%s\t%s\t%d\t%d\t%d\t%d\n",vo.getWh(),vo.getMa(),vo.getName(),
 					vo.getGa(),vo.getFa(),vo.getDa(),vo.getSa());
 		}
 		
